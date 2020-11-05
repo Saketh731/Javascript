@@ -1,0 +1,36 @@
+<body>
+    <div id='1'>
+		<div>
+			<p>Content 1</p>
+		</div>
+		<div>
+			<p>Content 2</p>
+		</div>
+		<div>
+			<p>Content 3</p>
+		</div>
+	</div>
+	<br>
+	<button onclick = "createElm()"> Create Element </button>
+	<br>
+	<button onclick = "appendToElm()"> Append as Child </button>
+	<script>
+		var element1;
+		var element2;
+		function createElm(){
+			element1 = document.createElement("b");
+			element2 = document.createElement("h3");
+			element1.innerHTML = "Newly created 1";
+			element2.innerHTML = "Newly created 2";
+			alert("Parent of 1st element is : "+element1.parentNode);
+			alert("Parent of 2nd element is : "+element2.parentNode);
+		}
+		function appendToElm(){
+			let ref = document.getElementById('1');
+			ref.firstElementChild.appendChild(element1);
+			ref.lastElementChild.appendChild(element2);
+			alert("Parent of 1st element is : "+element1.parentNode);
+			alert("Parent of 2nd element is : "+element2.parentNode);
+		}
+	</script>
+</body>

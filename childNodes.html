@@ -1,0 +1,44 @@
+<body>
+	<h1>Print the children of 3rd division</h1>
+	<div>
+		<p>Ramesh</p>
+		<b>Suresh</b>
+	</div>
+	<div>
+		<p>Shyam</p>
+		<b>Paul</b>
+	</div>
+	<div>
+		<p>Ram</p>
+		<b>Krishna</b>
+	</div>
+	<div>
+		<p>Reetha</p>
+		<b>Geetha</b>
+	</div>
+	<button onclick = "printChildren()">Print on Console</button>
+	<script>
+		function printChildren()
+		{
+			let count = 0;
+			let childlst = null;
+			let nodelst = document.body.childNodes;
+			for(let i = 0; i < nodelst.length; i++)
+			{
+				if(nodelst[i].nodeName == "DIV")
+				{
+					count++;
+					if(count == 3)
+					{
+						childlst = nodelst[i].children;
+						break;
+					}
+				}
+			}
+			for(let i = 0; i < childlst.length; i++)
+			{
+				console.log(childlst[i].textContent);
+			}
+		}
+	</script>
+</body>

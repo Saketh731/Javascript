@@ -1,0 +1,17 @@
+<body>
+	<div>
+		<p>
+		<button id = '1' onclick = "parents()"> All Ancestors </button>
+		</p>
+	</div>
+	<script>
+		function parents(){
+			let r = document.getElementById('1');
+			while(r.parentNode != null)
+			{
+				console.log(r.parentNode.nodeName);
+				r = r.parentNode;
+			}
+		}
+	</script>
+</body>
