@@ -1,0 +1,20 @@
+<script>
+	let person = {
+    cardName : "Saketh",
+	EncapsulatedPin : undefined
+}
+Object.defineProperty(person, 'pin', {
+    get: function () {
+	throw "We cant display the pin number";
+    },
+    set: function (value) {
+       pin = value;  
+	   this.EncapsulatedPin = pin *2 *7 +2;
+	   console.log("Your pin is updated");
+    }
+});
+
+//console.log(person.pin); // We cant display the pin number
+//person.pin = 2345; //Your pin is updated
+//Console.log(person.EncapsulatedPin);
+</script>

@@ -1,0 +1,30 @@
+<body>
+	<script>
+		function Person1(){
+			this.name = "saketh";
+			this.age = 22;
+		}
+		Person1.prototype.show = function(){
+			console.log(this.name,this.age);
+		}
+	
+		function Person2(){
+			Person1.call(this);
+		}
+		Person2.prototype = Object.create(Person1.prototype);
+		//Person2.prototype.constructor = Person2;
+		var p1 = new Person1();
+		var p2 = new Person2();
+		p2.__proto__.combine = function(){
+			console.log(this.name+" "+this.age);
+		}
+		
+		//p2.__proto__.__proto__ = Person1.prototype;
+		
+		//p1.__proto__.combine = function(){
+		//	console.log(this.name+" "+this.age);
+		//}
+		
+		p1.x = 1;
+	</script>
+</body>
