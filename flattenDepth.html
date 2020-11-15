@@ -1,0 +1,25 @@
+<script>
+    function _flattenDepth(arr, depth){
+        var newArr = [];
+        var k = 0;
+        for(var n = 1; n <= depth; n++){
+            newArr = [];
+            k = 0;
+            arr.forEach(function(obj){
+            if(obj instanceof Array){
+                for(var i = 0; i < obj.length ; i++){
+                    newArr[k] = obj[i];
+                    k++;
+                }
+            }
+            else{
+                newArr[k] = obj;
+                k++;
+            }
+        });
+        arr = newArr.slice(0);
+        }
+     
+        return arr;
+    }
+</script>

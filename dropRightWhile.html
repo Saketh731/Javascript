@@ -1,0 +1,40 @@
+<script>
+    function _dropRightWhile(object, iterater){
+            if(typeof(iterater) === 'function'){
+                var index = 0;
+                for(let obj of object){
+                    if(iterater(obj) === true) delete object[index];
+                    index++;
+                }
+            }
+            else if(iterater instanceof Array){
+                let i = 0;
+                let index = 0;
+                for(let obj of object){
+                    if(obj[iterater[i]] === iterater[i+1]) delete object[index];
+                    index++;
+                }                   
+            }
+            else if(typeof(iterater) === 'object'){
+                    let index = 0;
+                    for(let obj of object){
+                         let c = 0;
+                        for(let i in iterater){
+                            if(obj[i] !== iterater[i]) c++; break;
+                        }
+                        if(c == 0) delete object[index];
+                        index++;
+                    }
+            }
+            
+            else{
+                let index = 0;
+                let x = iterater;
+                for(let obj of object){
+                    if(obj.hasOwnProperty(x) == false) delete object[index]; 
+                    index++;
+                }           
+            }
+            return object;
+    }
+</script>

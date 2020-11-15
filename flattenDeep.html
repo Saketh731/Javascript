@@ -1,0 +1,29 @@
+<script>
+    function _flattenDeep(arr){
+        var newArr = [];
+        var k = 0;
+        var obj;
+        for(obj of arr){
+            if(obj instanceof Array){
+              recursion(obj);
+            }
+            else{
+                newArr[k] = obj;
+                k++;
+            }
+        }
+        function recursion(obj){
+            //debugger
+            for(var i = 0; i < obj.length ; i++){
+                    if(obj[i] instanceof Array){
+                        recursion(obj[i]);
+                    }
+                    else{
+                        newArr[k] = obj[i];
+                        k++;
+                    }
+                }
+        }   
+        return newArr;
+    }
+</script>

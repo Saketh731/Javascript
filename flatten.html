@@ -1,0 +1,19 @@
+<script>
+    function _flatten(arr){
+        var newArr = [];
+        var k = 0;
+        arr.forEach(function(obj){
+            if(obj instanceof Array){
+                for(var i = 0; i < obj.length ; i++){
+                    newArr[k] = obj[i];
+                    k++;
+                }
+            }
+            else{
+                newArr[k] = obj;
+                k++;
+            }
+        });
+        return newArr;
+    }
+</script>
