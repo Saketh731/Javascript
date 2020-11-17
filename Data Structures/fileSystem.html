@@ -77,5 +77,25 @@
                 }
             }
         }
+        FileSystem.prototype.getTextDocContent = function(docname){
+            let flag = 0;
+            if(this.root == null) return 'File is not yet created';
+            else{
+                let currentFile = this.root;
+                while(currentFile.innerFile != null){
+                    if(currentFile.index != 0){
+                        for(let i = 0; i < currentFile.index; i++){
+                            if(currentFile.data[i].docname == docname){
+                                console.log(currentFile.data[i].content);
+                                flag = 1;
+                                break;
+                            }
+                        }
+                    }
+                    if(flag == 1) break;
+                    currentFile = currentFile.innerFile;
+                }
+            }
+        }
     }
 </script>
