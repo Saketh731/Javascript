@@ -1,0 +1,25 @@
+<script>
+    function postFix(str){
+        let arr = [];
+        for(let i = 0; i < str.length; i++){
+            let val = Number(str[i]);
+            if(!isNaN(val)){
+                arr.push(val);
+            }
+            else{
+                let a = arr.pop();
+                let b = arr.pop();
+                let c;
+                switch(str[i]){
+                    case '+': c = b + a; break;
+                    case '-': c = b - a; break; 
+                    case '*': c = b * a; break; 
+                    case '/': c = b / a; break;
+                    default : throw 'Invalid String';  
+                }
+                arr.push(c);
+            }
+        }
+        return arr[arr.length - 1];
+    }
+</script>

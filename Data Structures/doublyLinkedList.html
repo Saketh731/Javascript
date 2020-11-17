@@ -1,0 +1,138 @@
+<script>
+    function Node(data){
+        this.data = data;
+        this.next = null;
+        this.previous = null;
+    }
+    function DoublyLinkedList(){
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+
+        DoublyLinkedList.prototype.add = function(data){
+            let node = new Node(data);
+            if(this.head === null && this.tail === null){
+                this.head = node;
+                this.tail = node;
+            } 
+            else{
+                this.tail.next = node;
+                node.previous = this.tail;
+                this.tail = node;
+            }
+            this.size++;
+        }
+        DoublyLinkedList.prototype.insertAt = function(data, index){
+            let node = new Node(data);
+            if(index === 0){
+                node.next = this.head;
+                this.head.previous = node;
+                this.head = node;
+            }
+            else{
+                let current = this.head;
+                for(let i = 0; i < index - 1; i++){
+                    current = current.next;
+                }
+                if(current.next === null){
+                    current.next = node;
+                    node.previous = current;
+                    this.tail = node;
+                }
+                else{
+                    node.next = current.next;
+                    node.next.previous = node;
+                    node.previous = current;
+                    current.next = node;
+                }
+            }
+            this.size++;
+        }
+        DoublyLinkedList.prototype.removeFrom = function(index){
+            if(index === 0){
+                this.head = this.head.next;
+                this.head.previous = null;
+            } 
+            else{
+                let current = this.head;
+                for(let i = 0; i < index - 1; i++){
+                    current = current.next;
+                }
+                if(current.next.next === 0){
+                    current.next = current.next.next;
+                    this.tail = current;
+                }
+                else{
+                    current.next = current.next.next;
+                    current.next.previous = current;
+                }
+                
+            }
+            this.size--;
+        }
+        DoublyLinkedList.prototype.removeElement = function(data){
+            if(this.head.data === data){
+                this.head = this.head.next;
+                this.head.previous = null;
+            } 
+            else{
+                let current = this.head;
+                while(current.next.data != data){
+                    current = current.next;
+                }
+                if(current.next.next === 0){
+                    current.next = current.next.next;
+                    this.tail = current;
+                }
+                else{
+                    current.next = current.next.next;
+                    current.next.previous = current;
+                }    
+            }
+            this.size--;
+        }
+        DoublyLinkedList.prototype.indexOf = function(data){
+            let count = 0;
+            let current = this.head;
+            while(current){
+                if(current.data === data) return count;
+                current = current.next;
+                count++;
+            }
+            return -1;
+        }
+        DoublyLinkedList.prototype.isEmpty = function(){
+            return this.size === 0;
+        }
+        DoublyLinkedList.prototype.sizeOf = function(){
+            return this.size;
+        }
+        DoublyLinkedList.prototype.print = function(){
+            if(this.head === null) return 'List is Empty';
+            let current = this.head;
+            while(current != null){
+                console.log(current.data);
+                current = current.next;
+            }
+        }
+        DoublyLinkedList.prototype.clear = function(){
+            this.head = null;
+            this.tail = null;
+        }
+        DoublyLinkedList.prototype.getFirst = function(){
+            if(this.head === null) return 'List is Empty';
+            else return this.head.data;
+        }
+        DoublyLinkedList.prototype.getLast = function(){
+            if(this.head === null) return 'List is Empty';
+            else return this.tail.data;
+        }
+        DoublyLinkedList.prototype.printReverse = function(){
+            let current = this.tail;
+            while(current != null){
+                console.log(current.data);
+                current = current.previous;
+            }
+        }
+    }
+</script>

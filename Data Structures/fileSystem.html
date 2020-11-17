@@ -1,0 +1,81 @@
+<script>
+    function TextDocument(name, content){
+        this.docname = name;
+        this.content = content;
+    }
+    function NewFile(name){
+        this.name = name;
+        this.data = [];
+        this.innerFile = null;
+        this.index = 0; 
+    }
+    function FileSystem(){
+        this.root = null;
+        FileSystem.prototype.createNewFile = function(filename){
+            let file = new NewFile(filename);
+            if(this.root == null) this.root = file;
+            else{
+                let currentFile = this.root;
+                while(currentFile.innerFile != null){
+                    currentFile = currentFile.innerFile;
+                }
+                currentFile.innerFile = file;
+            }
+        }
+        FileSystem.prototype.createNewFileAt = function(filename, targetFileName){
+            let file = new NewFile(filename);
+            if(this.root == null) this.root = file;
+            else{
+                let currentFile = this.root;
+                while(currentFile.name != targetFileName){
+                    currentFile = currentFile.innerFile;
+                }
+                file.innerFile = currentFile.innerFile;
+                currentFile.innerFile = file;
+            }
+        }
+        FileSystem.prototype.createTextDocument = function(docName){
+            let textdoc = new TextDocument(docName);
+            if(this.root == null) return 'File is not yet created';
+            else{
+                let currentFile = this.root;
+                while(currentFile.innerFile != null){
+                    currentFile = currentFile.innerFile;
+                }
+                currentFile.data[currentFile.index] = textdoc;
+                currentFile.index++;
+                return textdoc;
+            }
+        }
+        FileSystem.prototype.createTextDocumentAt = function(docName, targetFileName){
+            let textdoc = new TextDocument(docName);
+            if(this.root == null) return 'File is not yet created';
+            else{
+                let currentFile = this.root;
+                while(currentFile.name != targetFileName){
+                    currentFile = currentFile.innerFile;
+                }
+                currentFile.data[currentFile.index] = textdoc;
+                currentFile.index++;
+                return textdoc;
+            }
+        }
+        FileSystem.prototype.print = function(){
+            if(this.root == null) return 'File is not yet created';
+            else{
+                let currentFile = this.root;
+                console.log('Root File Name: '+currentFile.name);
+                while(currentFile.innerFile != null){
+                    if(currentFile.index != 0){
+                        for(let i = 0; i < currentFile.index; i++){
+                            console.log('Text Document Name: '+currentFile.data[i].docname);
+                            console.log('Text Document Content: '+currentFile.data[i].content);
+                        }
+                    }
+                    console.log('InnerFile Name: '+currentFile.innerFile.name);
+                    currentFile = currentFile.innerFile;
+                }
+            }
+        }
+    }
+</script>

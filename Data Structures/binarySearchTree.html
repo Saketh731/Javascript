@@ -1,0 +1,98 @@
+<script>
+    function Node(data){
+        this.data = data;
+        this.left = null;
+        this.right = null;  
+    }
+    function BinarySearchTree(){
+        this.root = null;
+        BinarySearchTree.prototype.insert = function(data){
+            let node = new Node(data);
+            if(this.root === null){
+                this.root = node;
+                return this;
+            }
+            let current = this.root;
+            while(current != null){
+                if(node.data > current.data){
+                    if(current.right === null){
+                        current.right = node;
+                        return this;
+                    }
+                    current = current.right;
+                }
+                else if(node.data < current.data){
+                    if(current.left === null){
+                        current.left = node;
+                        return this;
+                    }
+                    current = current.left;
+                }
+                else return this;
+            }
+        }
+        BinarySearchTree.prototype.find = function(data){
+            if(this.root.data === data) return true;
+            let current = this.root;
+            while(current !== null){
+                if(data < current.data) current = current.left;
+                else if(data > current.data) current = current.right;
+                else return true;
+            }
+            return false;
+        }
+        BinarySearchTree.prototype.inOrderSuccessor = function(current){
+            while(current.left != null){
+                current = current.left;
+            }
+            return current;
+        }
+        BinarySearchTree.prototype.removeNode = function(current, data){
+            if(current === null) return null;
+            if(data < current.data){
+                current.left = this.removeNode(current.left, data);
+                return current; 
+            }
+            else if(data > current.data){
+                current.right = this.removeNode(current.data, data);
+                return current;
+            }
+            else{
+                if(current.left === null && current.right === null) return null;
+                else if(current.left === null) return current.right;
+                else if(current.right === null) return current.left;
+                else{
+                    let temp = this.inOrderSuccessor(current.right);
+                    current.data = temp.data;
+                    current.right = this.removeNode(this.right, temp.data);
+                    return current;
+                }
+            }
+        }
+        BinarySearchTree.prototype.delete = function(data){
+            this.root = this.removeNode(this.root, data);
+            return this.root;
+        }
+        BinarySearchTree.prototype.inOrder = function(current){
+            if(current !== null){
+                this.inOrder(current.left);
+                console.log(current.data);
+                this.inOrder(current.right);
+            }
+        }
+        BinarySearchTree.prototype.preOrder = function(current){
+            if(current !== null){
+                console.log(current.data);
+                this.preOrder(current.left);
+                this.preOrder(current.right);
+            }
+        }
+        BinarySearchTree.prototype.postOrder = function(current){
+            if(current !== null){
+                this.postOrder(current.left);
+                this.postOrder(current.right);
+                console.log(current.data);
+            }
+        }
+    }
+</script>

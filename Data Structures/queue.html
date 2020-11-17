@@ -1,0 +1,45 @@
+<script>
+    function Queue(){
+        let array = [];
+        let rear = 0;
+        this.size = 10;
+        Queue.prototype.enqueue = function(obj){
+            if(this.rear >= this.size) return 'Queue size is limited to'+this.size;
+            else{
+            this.array[this.rear] = obj;
+            this.rear++; 
+            }
+        }
+        Queue.prototype.length = function(){
+            return this.rear;
+        }
+        Queue.prototype.isEmpty = function(){
+            return this.rear === 0;
+        }
+        Queue.prototype.getFront = function(){
+            if(this.isEmpty()) return 'Queue is Empty';
+            else return this.array[0];
+        }
+        Queue.prototype.getLast = function(){
+            if(this.isEmpty()) return 'Queue is Empty';
+            else return this.array[this.rear - 1];
+        }
+        Queue.prototype.dequeue = function(){
+            if(this.isEmpty()) return 'Queue is Empty';
+            else{
+                this.rear--;
+                return this.array.shift();
+            } 
+        }
+        Queue.prototype.print = function(){
+            if(this.isEmpty()) return 'Queue is Empty';
+            else{
+                for(let index = 0; index < this.rear; index++) console.log(this.array[index]);
+            }
+        }
+        Queue.prototype.clear = function(){
+            this.rear = 0;
+            this.array.length = 0;
+        }
+    }
+</script>

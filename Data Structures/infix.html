@@ -1,0 +1,52 @@
+<script>
+    function evaluate(a,b,op){
+        if(op == '+') return b+a;
+        else if(op == '-') return b-a;
+        else if(op == '*') return b*a;
+        else if(op == '/') return b/a;
+    }
+    function precedence(op){
+        if(op == '+') return 1;
+        else if(op == '-') return 2;
+        else if(op == '*') return 3;
+        else if(op == '/') return 3;
+    }
+    function inFix(str){
+        let operand = [];
+        let operator = [];
+        //let n = "";
+        for(let i = 0; i < str.length; i++){
+            // while(!isNaN(Number(str[i]))){
+            //     n = n + str[i];
+            //     continue;
+            // }
+            // val = Number(n);
+            val = Number(str[i]);
+            if(!isNaN(val)){
+               operand.push(val);
+            }
+            else{
+                if(operator.length == 0) operator.push(str[i]);
+                else{
+                    if(str[i] == '(') operator.push(str[i]);
+                    else if(str[i] == ')'){
+                        while(operator[operator.length - 1] != '('){
+                            let x = evaluate(operand.pop(), operand.pop(), operator.pop());
+                            operand.push(x);
+                        }
+                        operator.pop();
+                    }
+                    else{
+                        while(operator.length != 0 && (precedence(str[i]) < precedence(operator[operator.length - 1]))){
+                            let x = evaluate(operand.pop(), operand.pop(), operator.pop());
+                            operand.push(x);
+                        }
+                        operator.push(str[i]);
+                    }
+                }
+            }
+            //n = "";
+        }
+        return operand[operand.length - 1];
+    }
+</script>

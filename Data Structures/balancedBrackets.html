@@ -1,0 +1,29 @@
+<script>
+    function balancedBrackets(s){
+        //let s = "{[()]}";
+        let arr = [];
+        for(let i = 0; i < s.length; i++){
+            if(s[i] === ')'){
+                if(arr[arr.length - 1] == '('){
+                    arr.pop();
+                }
+            }
+            else if(s[i] === ']'){
+                if(arr[arr.length - 1] == '['){
+                    arr.pop();
+                }
+            }
+            else if(s[i] === '}'){
+                if(arr[arr.length - 1] == '{'){
+                    arr.pop();
+                }
+            }
+            else arr.push(s[i]);
+        }
+        if(arr.length == 0){
+            return 'Balanced';
+        }
+        else return 'Not Balanced';   
+    }
+    
+</script>
