@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <style>
+            div{
+                min-height: 100px;
+                min-width: 100px;
+                padding: 30px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="grandParent">
+            <div id="parent">
+                <div id="child"></div>
+            </div>
+        </div>
+        <script>
+            document.querySelector('#grandParent').addEventListener('click', function(e){
+                console.log('GrandParent is Clicked');
+                e.stopPropagation();
+            }, true);
+            document.querySelector('#parent').addEventListener('click', function(e){
+                console.log('Parent is Clicked');
+                //e.stopPropagation();
+            }, false);
+            document.querySelector('#child').addEventListener('click', function(e){
+                console.log('Child is Clicked');
+                //e.stopPropagation();
+            }, false);
+        </script>
+    </body>
+</html>

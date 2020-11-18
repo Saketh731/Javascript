@@ -1,0 +1,14 @@
+<body>
+    <div id="form">
+        <input type="text" id="name" data-uppercase>
+        <input type="text" id="age">
+        <input type="text" id="city" data-uppercase>
+    </div>
+    <script>
+        document.querySelector('#form').addEventListener('keyup', function(e){
+            if(e.target.dataset.uppercase != undefined){
+                e.target.value = e.target.value.toUpperCase();
+            }
+        });
+    </script>
+</body>

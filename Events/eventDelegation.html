@@ -1,0 +1,22 @@
+<body>
+    <div>
+        <ul id="category">
+            <li id="fashion">Fashion</li>
+            <li id="gadgets">Gadgets</li>
+            <li id="phones">Phones</li>
+        </ul>
+    </div>
+    <script>
+        document.querySelector('#category').addEventListener('click', function(e){
+            if(e.target.id == 'fashion'){
+                console.log('Fashion is clicked');
+            }
+            else if(e.target.id == 'gadgets'){
+                console.log('Gadgets is clicked');
+            }
+            else if(e.target.id == 'phones'){
+                console.log('Phones is clicked');
+            }
+        });
+    </script>
+</body>
