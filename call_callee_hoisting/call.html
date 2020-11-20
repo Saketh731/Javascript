@@ -1,0 +1,45 @@
+<script>
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+        this.printdetails = function(){
+            console.log(this.name+""+this.age);
+        }
+    }
+    //call method borrows the data present in one function to other
+    function Employee(ename, eage, empid){
+        Person.call(this, ename, eage);
+        this.empid = empid;
+    }
+    let e = new Employee('saketh', 22, 2594);
+    console.log(e.name);
+    let p = new Person('sasi',22);
+
+    function DifferentPerson(){
+        this.name = 'Rahul';
+        this.age = 32;
+        this.printdetails = p.printdetails.bind(this);
+    }
+    let dp = new DifferentPerson();
+    dp.printdetails();
+
+    let name = {
+        name : "random",
+        age: 50,
+        print: function(){
+            console.log(this.name+""+this.age);
+        }
+    }
+   
+    name.print.call(e);
+
+    
+    
+    // function DifferentPerson(){
+    //     this.name = 'Rahul';
+    //     this.age = 32;
+    //     this.print = name.print.bind(this);
+    // }
+    // let dp = new DifferentPerson();
+    // dp.print();
+</script>

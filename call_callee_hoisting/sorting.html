@@ -1,0 +1,16 @@
+<script>
+    let ar = [{name: 'Kholi', runs:5880},{name: 'Dhoni', runs:4880},{name: 'Rohith', runs:5100}];
+    let a = [...ar];
+    for(let i = 0; i < a.length; i++){
+        for(let j = 0; j < a.length - i - 1; j++){
+            if(a[j].runs > a[j+1].runs){
+                let temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+            }
+        }
+    }
+    // a.sort(function(n1,n2){
+    //     return n1.runs - n2.runs;
+    // })
+</script>
