@@ -1,0 +1,16 @@
+<body>
+    <p id="settime">Set Timeout</p>
+    <br><br>
+    <p id="cleartime">Clear Timeout</p>
+    <script>
+        let timeid; 
+        document.getElementById('settime').onclick = function(){
+            timeid = setTimeout(function(){
+                document.getElementById('settime').style.color = 'blue';
+            }, 5000);
+        }
+        document.querySelector('#cleartime').addEventListener('click', function(){
+            clearTimeout(timeid);
+        })
+    </script>
+</body>

@@ -1,0 +1,22 @@
+<script>
+    var counter = (function(){
+        var i = 0; // This acts as a private variable like in java
+                   // Similarly we can have private functions
+        return {
+            get: function(){
+                return i;
+            },
+            set: function(value){
+                i = value;
+            },
+            increment: function(){
+                i++;
+            }
+        }
+    })();
+    console.log(counter.get());
+    counter.set(5);
+    console.log(counter.get());
+    counter.increment();
+    console.log(counter.get());
+</script>

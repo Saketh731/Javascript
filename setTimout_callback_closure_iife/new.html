@@ -1,0 +1,42 @@
+<script>
+    let team1 = [
+    {Name:'Kholi',Runs:5880,Team:'RCB'},
+    {Name:'Dhoni',Runs:5880,Team:'CSK'},
+    {Name:'Rohith',Runs:5880,Team:'MI'}
+    ];
+    let team2 = [
+    {Name:'Rahul',Runs:5880,Team:'DC'},
+    {Name:'Dhoni',Runs:5880,Team:'CSK'},
+    {Name:'Warner',Runs:5880,Team:'SRH'}
+    ];
+    let newTeam = [...team1];
+
+    for(let obj1 of team2){
+        let flag = 0;
+        for(let obj2 of newTeam){
+            if(JSON.stringify(obj1) === JSON.stringify(obj2)){
+                flag = 1;
+                break;
+            }
+        }
+        if(flag == 0){
+            newTeam.push(obj1);
+        }
+    }
+
+    // for(let obj1 of team1){
+    //     for(let obj2 of team2){
+    //         if(obj1.name === obj2.name && obj1.Runs {}=== obj2.Runs && obj1.Team === obj2.Team){
+    //             newTeam.push(obj1);
+    //         }
+    //     }
+    // }
+
+    // for(let obj1 of team1){
+    //     for(let obj2 of team2){
+    //         if(JSON.stringify(obj1) === JSON.stringify(obj2)){
+    //             newTeam.push(obj1);
+    //         }
+    //     }
+    // }
+</script>

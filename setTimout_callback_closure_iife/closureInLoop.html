@@ -1,0 +1,22 @@
+<script>
+    // let print;
+    // for(var i = 0; i < 3; i++){   // prints 3 with var , 2 with let
+    //         print = function(){
+    //         console.log(i);
+    //     }       
+    // }
+    // print();
+    let i;
+    for(i = 0; i < 3; i++){ 
+        ((i)=>{
+            setTimeout(function(){
+            console.log(i);
+            console.dir(arguments.callee);
+        }, 2000 *i);  
+        })(i);  
+        // setTimeout(function(){
+        //     console.log(i);
+        //     console.dir(arguments.callee);
+        // }, 2000 *i);       
+    }
+</script>

@@ -1,0 +1,22 @@
+<script>
+//     let time = 5000;
+//    setTimeout(function(){
+//        console.log("printed after "+time/1000+" seconds");
+//    }, time);    
+
+   function func(){
+    console.log(2);
+   }
+
+
+
+   console.log(1);
+   let tid1 = setTimeout(func,10000);
+   console.log(3);
+   let tid2 = setTimeout(function(){
+    console.log(4);
+   },5000);
+   console.log(5);
+   console.log(6);
+   
+</script>

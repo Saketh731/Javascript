@@ -1,0 +1,32 @@
+<body>
+    <button id="clearinterval">Clear Intervel</button>
+</body>
+<script>
+    let p = document.createElement('p');
+    p.innerHTML = 'First paragh';
+    document.body.appendChild(p);
+
+    let intervalId = setInterval(function(){
+            let inp = document.createElement('input');
+            inp.value = 'New Input';
+            document.body.appendChild(inp);
+        }, 2000);
+
+    document.querySelector('#clearinterval').addEventListener('click', function(){
+        clearInterval(intervalId);
+    })
+
+    let p2 = document.createElement('p');
+    p2.innerHTML = 'Second paragh';
+    document.body.appendChild(p2);
+    // console.log(1);
+    // tid = setInterval(function(){
+    //     console.log(2);
+    // }, 10000);
+    // console.log(3);
+    // tid = setInterval(function(){
+    //     console.log(4);
+    // }, 2000);
+    // console.log(5);
+    // console.log(6);
+</script>

@@ -1,0 +1,28 @@
+<script>
+    function print(num, callback){
+        callback(num*2);
+        console.log(num);
+    }
+    function multiply(multinum){
+        console.log(multinum);
+    }
+    print(2, multiply);
+
+    //Note: Syncronous callbacks are not stored in the queue
+    
+    // let v = 2;
+
+    // function print(num, callback){
+    //     callback(num*2);
+    //     console.log(num);
+    // }
+    // function multiply(multinum){
+    //     console.log(multinum);
+    // }
+    // print(2, multiply);
+
+
+
+
+
+</script>

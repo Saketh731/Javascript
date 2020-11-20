@@ -1,0 +1,22 @@
+<script>
+    for(let i = 1; i <= 2; i++){
+        (function(){
+            console.log('Print-1');
+        })();
+        (function(i){
+            console.log('Print-'+i);
+        }(2));
+        !function(){
+            console.log('Print-3');
+        }();
+        -function(){
+            console.log('Print-4');
+        }();
+        +function(i){
+            console.log('Print-'+i);
+        }(5);
+        ~function(i){
+            console.log('Print-'+i);
+        }(6);
+    }
+</script>
