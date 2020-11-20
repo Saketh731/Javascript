@@ -1,0 +1,22 @@
+<script>
+    let num = undefined;
+    function setValue(value){
+        setTimeout(function(){
+            num = value/2;
+        }, 5000);
+    }
+
+    function sum(value){
+        return value+100;
+    }
+
+    function *generator(){
+        yield setValue(4);
+        yield sum(num);
+    }
+
+    let gen = generator();
+
+    console.log(gen.next());
+    //console.log(gen.next());
+</script>

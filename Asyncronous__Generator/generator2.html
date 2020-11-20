@@ -1,0 +1,23 @@
+<script>
+    function *generator1(){
+        yield 1;
+        yield 'two';
+        yield* generator2();
+        return 'end now';
+        yield 5;
+    }
+    function *generator2(){
+        yield 3;
+        yield 'four';
+    }
+
+    let generator = generator1();
+
+    console.log(generator.next().value);
+    console.log(generator.next().value);
+    console.log(generator.next().value);
+    console.log(generator.next().value);
+    console.log(generator.next().value);
+    console.log(generator.next().value);
+    
+</script>

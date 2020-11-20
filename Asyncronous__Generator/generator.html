@@ -1,0 +1,25 @@
+<script>
+    // function *generator(){
+    //     yield 1;
+    //     yield 'two';
+    //     yield 3;
+    // }
+    // let iterator = generator();
+    // console.log(iterator.next().value);
+    // console.log(iterator.next().value);
+    // console.log(iterator.next().value);
+
+    function *infinityGenerator(){
+        let i = 0;
+        while(true){
+            yield i;
+            i++;
+        }
+    }
+
+    let iterator = infinityGenerator();
+    console.log(iterator.next().value);
+    console.log(iterator.next().value);
+    console.log(iterator.next().value);
+
+</script>

@@ -1,0 +1,25 @@
+<body>
+    <p id="demo">Click me.</p>
+    
+
+<script>
+    var i;
+    document.getElementById("demo").onclick = function() {
+        document.getElementById("demo").innerHTML = "YOU CLICKED ME!"+i;
+    };
+    // setTimeout(function(){
+    //     document.getElementById("demo").innerHTML = "YOU CLICKED ME!"+i;
+    // },0);
+
+ for(i = 0; i < 100; i++){
+     debugger
+            if(i == 2){
+                document.querySelector('#demo').onclick();
+            }
+            var  x = document.createElement('input');
+            x.innerHTML = "Yes";
+            document.body.appendChild(x);
+        }
+</script>
+       
+</body>

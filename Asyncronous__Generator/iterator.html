@@ -1,0 +1,22 @@
+<script>
+    // let str = 'Saketh';
+    // for(let val of str){
+    //     console.log(val);
+    // }
+
+
+    // let mySet = new Set([1,2,2,3,3,4]);
+    // for(let val of mySet){
+    //     console.log(val);
+    // }
+
+    let array = [1,2,2,3,3,4];
+    let iterator = array[Symbol.iterator]();
+    let b = false;
+    while(b === false){
+        b = iterator.next();
+        console.log(b.value);
+        b = b.done;
+    }
+    
+</script>
