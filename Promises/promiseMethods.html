@@ -1,0 +1,19 @@
+<script>
+     let task1 = new Promise(function(resolve, reject){
+            resolve('Task1 Success');
+        });
+    let task2 = new Promise(function(resolve,reject){
+            resolve("Task2 Success");
+        });
+
+    let task3 = new Promise(function(resolve, reject){
+            resolve('Task3 Success');
+        });
+
+    Promise.all([task1,task2,task3]).then(function(arr){
+        console.log(arr);
+    })
+    Promise.race([task1,task2,task3]).then(function(arr){
+        console.log(arr);
+    })
+</script>

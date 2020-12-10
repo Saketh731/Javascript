@@ -1,0 +1,29 @@
+<script>
+    let task1 = function(){
+        return new Promise(function(resolve, reject){
+            resolve('Task1 Success');
+        });
+    }
+    let task2 = function(value){
+        throw "Unexpected error occured";
+        return new Promise(function(resolve,reject){
+            resolve(value+" Task2 Success");
+        });
+    }
+    let task3 = function(value){
+        return new Promise(function(resolve, reject){
+            resolve(value+' Task3 Success');
+        });
+    }
+    task1().then(function(result1){
+        return task2(result1);
+    }).then(function(result2){
+        return task3(result2);
+    }).then(function(result3){
+        console.log(result3);
+    }).catch(function(error){
+        console.log(error);
+    }).finally(function(value){
+        console.log(value+" Finally");
+    });
+</script>

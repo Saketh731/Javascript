@@ -1,0 +1,17 @@
+<script>
+    let p = new Promise(function(resolve, reject){
+        let a = 1;
+        if( a==1){
+            resolve('success');
+        }
+        else{
+            reject('Failed');
+        }
+        
+    });
+    p.then(function(value){
+        console.log(value);
+    },function(value){
+        console.log(value);
+    });
+</script>

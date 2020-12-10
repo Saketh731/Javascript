@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script type="text/javascript">
+        let table = document.createElement('table');
+        document.body.appendChild(table);
+        debugger
+        let task1 = function(){
+            return new Promise(function(resolve, reject){
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://api.github.com/users", true);
+                xhr.onload = function(){
+                    if(xhr.status == 200) resolve(xhr);
+                    else reject("Rejected");
+                }
+                xhr.send();
+            });
+        }
+
+        let task2 = function(){
+            return new Promise(function(resolve, reject){
+                resolve();
+            });      
+        }
+
+            let task3 = function(){
+                return new Promise(function(resolve, reject){
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("GET", "https://api.github.com/users", true);
+                    xhr.onload = function(){
+                        if(xhr.status == 200) resolve(xhr);
+                        else reject("Rejected");
+                    }
+                    xhr.send();
+                });
+            }
+            let task4 = function(){
+            return new Promise(function(resolve, reject){
+                resolve();
+            });      
+        }
+
+        // task1().then(function(xhr){
+        //     let object = JSON.parse(xhr.responseText);
+        //     for(let obj of object){
+        //         let row = document.createElement('tr');
+        //         table.appendChild(row);
+        //         let td = document.createElement('td');
+        //         row.appendChild(td);
+        //         td.innerHTML = obj.id;
+        //     }
+        //     return task2();
+        // })
+        //    .then(function(){
+        //     for(let i = 0; i < 10; i++){
+        //             let row = document.createElement('tr');
+        //             table.appendChild(row);
+        //             let td = document.createElement('td');
+        //             row.appendChild(td);
+        //             td.innerHTML = "Second "+i;
+        //         }
+        //         return task3();
+        // })
+        // .then(function(xhr){
+        //     let object = JSON.parse(xhr.responseText);
+        //     for(let obj of object){
+        //         let row = document.createElement('tr');
+        //         table.appendChild(row);
+        //         let td = document.createElement('td');
+        //         row.appendChild(td);
+        //         let image = document.createElement('img');
+        //         image.src = obj.avatar_url;
+        //         td.appendChild(image);
+        //     }
+        //     return task4();
+        // })
+        // .then(function(){
+        //     for(let i = 0; i < 10; i++){
+        //         let row = document.createElement('tr');
+        //         table.appendChild(row);
+        //         let td = document.createElement('td');
+        //         row.appendChild(td);
+        //         td.innerHTML = "Fourth "+i;
+        //     }
+        // });
+        task1().then(function(xhr){
+            let object = JSON.parse(xhr.responseText);
+            for(let obj of object){
+                let row = document.createElement('tr');
+                table.appendChild(row);
+                let td = document.createElement('td');
+                row.appendChild(td);
+                td.innerHTML = obj.id;
+            }
+            return task2();
+        })
+           .then(function(){
+            for(let i = 0; i < 10; i++){
+                    let row = document.createElement('tr');
+                    table.appendChild(row);
+                    let td = document.createElement('td');
+                    row.appendChild(td);
+                    td.innerHTML = "Second "+i;
+                }
+                return Promise.all([task3(),task4()]);
+        })
+        .then(function([xhr, noth]){
+            console.log(xhr);
+            let object = JSON.parse(xhr.responseText);
+            for(let obj of object){
+                let row = document.createElement('tr');
+                table.appendChild(row);
+                let td = document.createElement('td');
+                row.appendChild(td);
+                let image = document.createElement('img');
+                image.src = obj.avatar_url;
+                td.appendChild(image);
+            }
+            for(let i = 0; i < 10; i++){
+                let row = document.createElement('tr');
+                table.appendChild(row);
+                let td = document.createElement('td');
+                row.appendChild(td); 
+                td.innerHTML = "Fourth "+i;
+            }
+        })
+
+        </script>
+    </body>
+</html>
