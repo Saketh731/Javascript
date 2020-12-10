@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function createPromise(link){
+                return new Promise(function(resolve, reject){
+                    let scriptTag = document.createElement('script');
+                    scriptTag.type = "text/javascript";
+                    scriptTag.src = link;
+                    document.head.appendChild(scriptTag);
+                    if(scriptTag != undefined) resolve();
+                    else reject("Not a valid source file");
+                });
+            }
+            async function doTask(){
+                try{
+                    let response1 = await createPromise('script1.js');
+                    console.log("Response 1 received");
+                    let response2 = await createPromise("script2.js");
+                    console.log("Response 2 received");
+                    let response3 = await createPromise("script3.js");
+                    console.log("Response 3 received");
+                }
+                catch(err){
+                    let ptag = document.createElement('p');
+                    ptag.innerHTML = err;
+                    document.body.appendChild(ptag);
+                }
+            }
+            doTask();
+        </script>
+    </body>
+</html>
