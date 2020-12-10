@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function Person(){
+                this.name1 = "Saketh",
+                this.age = 22
+            }
+            //console.log(Object.getOwnPropertyDescriptor(Person, "name1"));
+
+            Object.defineProperty(Person, "mobile", {
+                configurable: false,
+                enumerable: true,
+                writable: true,
+                value: 8877665544
+            })
+        </script>
+    </body>
+</html>

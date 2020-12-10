@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script type="text/javascript">
+            let person = {
+                name : "Saketh",
+                age : 22
+            }
+            //console.log(Object.getOwnPropertyDescriptor(person, 'name'));
+            
+            Object.defineProperty(person, 'id', {
+                configurable: true,
+                enumerable: true,
+                writable: false,
+                value: 2594            
+            })
+            
+            Object.defineProperty(person, 'id', {
+                configurable: false,
+                value: 1234,
+                writable: true
+            })
+
+            console.log(Object.getOwnPropertyDescriptor(person, 'id'));
+        </script>
+    </body>
+</html>

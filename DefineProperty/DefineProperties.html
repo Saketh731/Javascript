@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let person = {
+                name: "Saketh",
+                phone: 7995232460
+            }
+            Object.defineProperties(person,{
+                age: {
+                    configurable: true,
+                    writable: false,
+                    value: 22
+                },
+                mobile: {
+                    configurable: true,
+                    enumerable: false,
+                    get: function(){
+                        return this.phone;
+                    },
+                    set: function(value){
+                        this.phone = value;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
