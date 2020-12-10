@@ -1,0 +1,81 @@
+
+<body>
+	<script>
+		
+		
+	
+	
+	
+	
+		//Shallow cloning using Object.assign()
+		var ob1 = {name:"Saketh", age:22};
+		var ob2 = Object.assign({}, ob1);
+		ob2.name = "Saketh Kota";
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Deep cloning using Object.assign() dosent work
+		var person1 = {name: "Saketh", address:{street:2, houseNo:208, city: "Hyderabad"}, age:22};
+		var person2 = Object.assign({},person1);
+		person2.address.state = "Telangana";	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Deep Cloning using JSON stringify
+		var dept = {depname:"cse", location:"A block"}
+		var emp = {empname:"saketh", empid:1, department: dept}; 
+		var deepEmp = JSON.parse(JSON.stringify(emp));	
+		deepEmp.empname = "James";	
+		deepEmp.department.depname = "ece";
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Using spread operator
+		// var deepEmp = {...emp}; 
+		
+		
+		
+		
+		//Using lodash
+		//const clone = require('lodash.clone')
+		//const clonedeep = require('lodash.clonedeep')
+		
+		
+		//Using Object.create() - Uses the same prototype (not copying)
+		//var deepEmp = Object.create(emp);
+		
+		
+	</script>
+</body>
