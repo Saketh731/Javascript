@@ -1,0 +1,47 @@
+<body>
+    <script>
+        let emp = [
+            {
+                 name : "Saketh Kota",
+                 id: 1,
+                 domain : "Java",
+                 position: "Software Engineer"
+             },
+            {
+                 name: "Ramesh",
+                 id:2,
+                 domain: "Java",
+                 position: "Trainee Software Engineer"
+             },
+             {
+                 name: "John",
+                 id:4,
+                 domain: "Java",
+                 position: "Software Engineer"
+             }
+         ]
+         let changedEmp = emp.map(obj => {
+             //let tempObj = Object.assign({},obj);
+             let tempObj = {...obj};
+             if(tempObj.position === "Trainee Software Engineer"){
+                tempObj.position = "Software Engineer";
+                tempObj.hike = '20%';
+             }
+             else{
+                tempObj.position = "Senior Software Engineer";
+                tempObj.hike = "30%";
+             }
+             return tempObj;
+            //  if(obj.position === "Trainee Software Engineer"){
+            //     obj.position = "Software Engineer";
+            //     obj.hike = '20%';
+            //  }
+            //  else{
+            //     obj.position = "Senior Software Engineer";
+            //     obj.hike = "30%";
+            //  }
+            //  return obj;
+         })
+    </script>
+</body>
+

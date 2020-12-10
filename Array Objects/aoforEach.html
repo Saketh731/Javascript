@@ -1,0 +1,30 @@
+<body>
+    <script>
+         let emp = [
+            {
+                 name : "Saketh Kota",
+                 id: 1,
+                 domain : "Java",
+                 position: "Software Engineer"
+             },
+            {
+                 name: "Ramesh",
+                 id:2,
+                 domain: "Java",
+                 position: "Trainee Software Engineer"
+             },
+             {
+                 name: "John",
+                 id:4,
+                 domain: "Java",
+                 position: "Software Engineer"
+             }
+         ]
+         emp.forEach(obj => {
+             if(obj.domain === 'Java' && obj.name === 'Ramesh'){
+                 obj.domain = '.net';
+                 obj.location = 'Gar';
+             }
+         })
+    </script>
+</body>

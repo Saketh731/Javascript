@@ -1,0 +1,56 @@
+<body>
+    <script>
+        let emp = [
+            {
+                 name : "Saketh Kota",
+                 id: 1,
+                 domain : "Java",
+                 position: "Software Engineer"
+             },
+            {
+                 name: "Ramesh",
+                 id:2,
+                 domain: "Java",
+                 position: "Trainee Software Engineer"
+             },
+             {
+                 name: "John",
+                 id:4,
+                 domain: "Java",
+                 position: "Software Engineer"
+             },
+        
+            [{
+                 name: "Chandu",
+                 id:5,
+                 domain: "Python",
+                 position: "Software Engineer"
+          },
+          {
+                 name: "Shekar",
+                 id:5,
+                 domain: "Python",
+                 position: "Trainee Software Engineer"
+          }]
+         ]
+         let empArray = emp.map(obj => {
+             if(obj instanceof Array)
+             {
+               let arobj = obj.filter(inobj => inobj.position === 'Software Engineer' );
+               return arobj;
+              //return {...obj, ob1j: obj.filter(inobj => inobj.position === 'Software Engineer')}
+             }
+             else
+             {
+                 if(obj.position === 'Software Engineer'){
+                     return obj;
+                 }
+             }
+         });
+            //let empArray = emp.map(obj => (obj instanceof Array)? obj.filter(inobj => inobj.position === 'Software Engineer') : (obj.position === 'Software Engineer')? obj : undefined);
+
+
+    </script>
+</body>
+
+
