@@ -1,0 +1,25 @@
+<html>
+	<body>
+		<form>
+			<input id = "inp">
+			<br>
+			<select> 
+				<option>select</option>
+			</select>
+		</form>
+		<br>
+		<button onclick = "addelm()">Add</button>
+		<script>
+			function addelm(){
+				var op = document.createElement("option");
+				op.innerHTML = document.getElementById("inp").value;
+				//or
+				//op.value = document.getElementById("inp").value;
+				var x = document.getElementsByTagName('select')[0];
+				x.appendChild(op);
+				//or
+				//x.add(op);
+			}
+		</script>
+	</body>	
+</html>
