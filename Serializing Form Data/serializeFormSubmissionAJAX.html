@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form id="userData">
+            <label for="idno">ID Number:</label>
+            <input type="number" max="6" name="id" id="idno"><br><br>
+            <label for="firstname">FirstName:</label>
+            <input type="text" name="first_name" id="firstname"><br><br>
+            <button id="btnSubmit">Submit</button>
+        </form>
+        <br><br>
+        <script type="text/javascript">
+       let myform =  document.getElementById('userData')
+        myform.addEventListener('submit', fetchData)
+            function fetchData(e){
+                e.preventDefault();
+                let formdata = new FormData(e.target);
+                console.log(formdata);
+                let table = document.createElement('table');
+                document.body.appendChild(table);
+                let row = document.createElement('tr');
+                table.appendChild(row);
+                let str = `<th>ID</th> <th>Email</th> <th>FirstName</th> <th>LastName</th>`;
+                row.innerHTML = str;
+
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://reqres.in/api/users?page=1", true);
+                //xhr.open("GET", "https://api.github.com/users", true)
+                xhr.onload = function(){
+                    //console.log(xhr.response);
+                    let object = JSON.parse(this.responseText);
+                    for(let key in object){
+                       if(object[key] instanceof Array){   
+                           for(let obj of object[key]){
+                            let newRow = document.createElement('tr');
+                            table.appendChild(newRow);
+                            let str = `<th>${obj.id}</th> <th>${obj.email}</th> <th>${obj.first_name}</th> <th>${obj.last_name}</th>`;
+                            newRow.innerHTML = str;
+                           }
+                       }
+                    }
+                    // for(let obj of object){
+                    //    let newRow = document.createElement('tr');
+                    //    table.appendChild(newRow);
+                    //    let str = `<th>${obj.id}</th> <th>${obj.avatar_url}</th> <th>${obj.type}</th> <th>${obj.site_admin}</th>`;
+                    //    newRow.innerHTML = str;
+                    // }
+            
+                }
+                xhr.send(formdata);
+            }
+        </script>
+    </body>
+</html>

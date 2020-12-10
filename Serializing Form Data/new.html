@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Send POSt Data</title>
+    </head>
+    <body>
+ 
+        <form enctype="multipart/form-data">
+            <label for="userName">Enter User Name</label>
+            <input type="text" id="userName" name="userName"><br><br>
+            <label for="fileInput">Choose File</label>
+            <input type="file" id="fileInput" name="fileInput" accept=".jpeg, .png"><br><br>
+            <input type="submit">
+        </form>
+        <script >
+            document.addEventListener("submit",function(event){
+    event.preventDefault();
+    let data = event.target;
+    let formdata=new FormData(data);
+    console.log(formdata);
+    let xhr=new XMLHttpRequest();
+    xhr.open("POST","https://reqres.in/api/users");
+    xhr.onload=function(){
+        console.log(xhr.response);
+        console.log(xhr.response.data);
+       let p=document.createElement('p');
+       p.innerHTML=xhr.response;
+       document.body.appendChild(p);
+    }
+    xhr.send(JSON.stringify(serialize(formdata)));
+})
+function serialize(form){
+    let obj={};
+    for(let i of form.keys())
+    {
+        obj[i]=form.get(i);
+    }
+    console.log(obj);
+    return obj;
+}
+        </script>
+    </body>
+</html>

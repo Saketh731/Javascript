@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form id="userData">
+            <div>
+                <label for="idno">ID Number:</label>
+                <input type="number" max="6" name="id" id="idno">
+            </div>
+            <div>
+                <label for="firstname">FirstName:</label>
+                <input type="text" name="first_name" id="firstname"> 
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        
+        <script>
+            let form = document.getElementById('userData');
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                let formdata = new FormData(e.target);
+                // for(let key of formdata.keys()){
+                //     console.log(key, formdata.get(key));
+                // }
+
+                let header = new Headers();
+                header.append('Content-type', 'application/json');    
+
+                let request = new Request("https://reqres.in/api/users?page=1",{
+                    method: 'POST',
+                    headers: header,
+                    body: serialize(formdata),
+                });
+
+                fetch(request).then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    console.log(data);
+                })
+
+                function serialize(formdata){
+                    let obj = {};
+                    for(let key of formdata.keys()){
+                        obj[key] = formdata.get(key);
+                    }
+                    return JSON.stringify(obj);
+                }
+            })
+        </script>
+    </body>
+</html>
