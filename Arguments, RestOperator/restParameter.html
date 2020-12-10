@@ -1,0 +1,16 @@
+<!DOCTYPE html>>
+<html>
+    <body>
+        <script>
+            //It is an array, so can use array methods and properties
+            function print(name, age, ...others){
+                console.log(name, age);
+                others.push("My own value");
+                for(val of others){
+                    console.log(val);
+                }
+            }
+            print("Saketh", 22, 2594, "CSE");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //It is not a real array, so cannot use array methods and properties
+            function print(){
+                //console.log(arguments instanceof Array); //Not an Array
+
+                // for(let i = 0; i < arguments.length; i++)
+                // {
+                //     console.log(arguments[i]);
+                // }
+
+                // for(let i in arguments)
+                // {
+                //     console.log(arguments[i]);
+                // }
+                
+                for(let i of arguments)
+                {
+                    console.log(i);
+                }
+            }
+            //print(1,"Two",3,4,"Five");
+            print([1,"Two",3,4], "five", 6);
+        </script>
+    </body>
+</html>
