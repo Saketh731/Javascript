@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form>
+            <input type="text" id="alphabets" name="alphabets">
+        </form>
+        <script type="text/javascript">
+            let inp = document.getElementById("alphabets");
+            let val;
+            let flag = 0;
+            inp.addEventListener('keydown', function(e){
+                if(e.keyCode >= 48 && e.keyCode <= 57){
+                    if(flag == 0){
+                        val = inp.value;
+                        flag = 1;    
+                    }
+                }
+            });
+            inp.addEventListener('keyup', function(e){
+                flag = 0;
+                if(e.keyCode >= 48 && e.keyCode <= 57){
+                    inp.value = val;
+                } 
+            });
+        </script>
+    </body>
+</html>
