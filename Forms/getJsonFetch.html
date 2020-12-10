@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <label for="idno">ID Number:</label>
+        <input type="number" max="46" name="id" id="idno"><br><br>
+        <label for="username">UserName:</label>
+        <input type="text" id="username" name="login"><br><br>
+        <input type="button" value="Submit" onclick="fetchData()"> <br><br>
+        <script>
+            function fetchData(){
+                fetch("https://api.github.com/users")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    let table = document.createElement('table');
+                    document.body.appendChild(table);
+                    let row = document.createElement('tr');
+                    table.appendChild(row);
+                    row.innerHTML = `<th>ID Number</th> <th>UserName</th> <th>Image</th>`;
+                    for(obj of data){
+                        // let image = document.createElement('img');
+                        // image.src = obj.avatar_url;
+                        let str = `<td>${obj.id}<td> <td>${obj.login}<td> <td><img src="${obj.avatar_url}"><td>`;
+                        let newRow = document.createElement('tr');
+                        newRow.innerHTML = str;
+                        table.appendChild(newRow);
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>

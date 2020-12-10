@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #form1 input, #form2 input{
+            display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <form target="_blank" name="form1" id="form1">
+            <label for="firstName">FirstName</label>
+            <input type="text" name="firstName" id="firstName">
+            <label for="lastName">LastName</label>
+            <input type="text" name="lastName" id="lastName">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age">
+            <input type="image" height="40"  src="nature.png" alt="nature" width="30" id="img1">
+            <input type="submit" value="Submit" id="submit1">
+        </form>
+        <br><br>
+        <form target="_blank" name="form2" id="form2">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address">
+            <label for="state">State</label>
+            <input type="text" name="state" id="state">
+            <label for="street">Street</label>
+            <input type="number" name="street" id="street">
+            <input type="image" src="nature.png" alt="nature" height="40" width="30" id="img2">
+            <input type="button" value="Submit" id="submit2">
+        </form>
+        <script>
+            let allforms = document.forms;
+            for(let i=0; i<allforms.length; i++){
+               document.getElementById(allforms[i].id).addEventListener('submit', function(e){
+               e.preventDefault;
+               //console.log(document.forms.item(0));
+               //console.log(document.forms.namedItem('form2'));
+               let formElms = allforms[i].elements;
+               for(let i = 0; i < formElms.length; i++){
+                   if(formElms[i].type != 'submit'){
+                    console.log(formElms[i].value);
+                   }
+               }
+               //console.log(formElms["age"].value);
+              //console.log(formElms.item(0));
+           })
+            }
+        </script>
+    </body>
+</html>

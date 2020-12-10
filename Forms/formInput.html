@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #red:checked + #ptag{
+                color: blue;
+            }
+            #email:invalid{
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="sample.html" target="_blank" name="form1">
+            <label for="red">Red: </label>
+            <input id="red" type="checkbox" name="color1" value="Red">
+            <p id="ptag">Color</p>
+            <input type="file" name="fileName">
+            <br><br>
+            <input type="text" name="details" value="sasi" size="30" maxlength="5" required autofocus >
+            <br><br>
+            <input type="email" name="email" id="email">
+            <br><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>

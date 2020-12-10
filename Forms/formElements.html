@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form action="sample.html" target="_blank" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+            <fieldset>
+                <legend>Registration</legend>
+                <input type="number" id="a" max="20" name="a"><br><br>
+                <select name="Colors">
+                <option value="Red" name="red">Red</option>
+                <option name="blue">Blue</option>
+                </select><br><br>
+                <input type="range" id="b" value="30" max="100"><br><br>
+                <progress max="100" value="30" name="progress"></progress><br><br>
+                <label for="country" name="lable">Country:</label>
+                <input type="text" id="country" list="countryList" name="country">
+                <datalist id="countryList" name="datalist">
+                    <option>India</option>
+                    <option>Canada</option>
+                    <option>Europe</option>
+                </datalist><br><br>
+                <output for="a b" name="x"></output><br><br>
+                <input type="submit">     
+            </fieldset>
+        </form>
+    </body>
+</html>
