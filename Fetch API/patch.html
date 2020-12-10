@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id="patchResource" type="submit" value="Patch Data">
+        <script type="text/javascript">
+        // PATCH to the resource id = 6
+
+        document.getElementById('patchResource').addEventListener('click', function(e){
+            e.preventDefault();
+            let newRequest = new Request("https://jsonplaceholder.typicode.com/todos/6");
+            let init = {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    completed: true
+                }),
+                headers: {"Content-type": "application/json; charset=UTF-8"}
+            }
+            fetch(newRequest, init)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                console.log(data);
+            })
+        });
+        </script>
+    </body>
+</html>

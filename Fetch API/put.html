@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <input id="putResource" type="submit" value="Put Data">
+    <body>
+        <script type="text/javascript">
+        document.getElementById('putResource').addEventListener('click', function(e){
+            e.preventDefault();
+            let header = new Headers();
+            header.append("Content-type", "application/json");
+            let init = {
+                method: 'PUT',
+                body: JSON.stringify({
+                    userID: 1,
+                    id: 2,
+                    title: "Saketh Task",   //if commented you will not be able to see the title in resource, but in patch you can
+                    completed: true
+                }),
+                headers: header 
+            }
+            let request = new Request("https://jsonplaceholder.typicode.com/todos/2", init);  //if you remove the URI, you will get an error as it is specific to a resource to update
+            fetch(request)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                console.log(data);
+            })
+        });
+        </script>
+    </body>
+</html>
