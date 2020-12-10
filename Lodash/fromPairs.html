@@ -1,0 +1,11 @@
+<script>
+    function _fromPairs(array) {
+            let arr = {};
+            for (let i = 0; i < array.length; i++) {
+                if (typeof(array[i]) === "object") {
+                    arr[array[i][0]] = array[i][1];
+                }
+            }
+            return arr; 
+        }
+</script>
