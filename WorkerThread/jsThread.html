@@ -1,0 +1,10 @@
+<script>
+    if(window.Worker){
+        let worker= new Worker("workerThread.js");
+        let calculate = {sum:{a:1, b:1}};
+        worker.postMessage(calculate);
+        worker.onmessage = function(obj){
+            console.log(obj.data.value);
+        }
+    }
+</script>
