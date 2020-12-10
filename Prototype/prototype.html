@@ -1,0 +1,34 @@
+<body>
+	<script>
+		function Points(){
+			this.x = 100;
+			this.y = 99;
+			//this.show = function(){
+			//	console.log(this.x,this.y);
+			//}
+		}
+		Points.prototype.show = function(){
+			console.log(this.x,this.y);
+		}
+		
+		
+		var p = new Points();
+
+
+
+
+
+		
+		p.__proto__.double = function(){
+			this.x *= 2;
+			this.y *= 2;
+			console.log(this.x,this.y)
+		}
+		
+		//delete p.__proto__.__proto__.toString;
+		
+		
+		//console.log(p.toString());
+		
+	</script>
+</body>

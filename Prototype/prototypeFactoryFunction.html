@@ -1,0 +1,57 @@
+<body>
+	<script>
+		var cstP1 = new constructorPoint();
+		
+		
+		function constructorPoint(){
+			this. x = 1;
+			this.y = 2;
+			this.show = function(){
+				console.log(this.x, this.y);
+			}
+		}
+		
+		constructorPoint.prototype.double = function(){
+			this.x *= 2;
+		}
+		
+		
+		
+		
+		
+	
+		function modify_proto_Property(){
+			var point = Object.create(Points);
+			point.z = 3;
+			point.y = 2;
+			return point;
+		}
+		let Points = {
+			x : 1,
+			y: 2,
+			show : function(){
+				console.log(this.x, this.y);
+			}
+		}
+		var p1 = modify_proto_Property();
+		p1.x = 1;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Points.prototype.double = function(){
+		//this.x *= 2;
+		//}
+			
+			
+		
+	
+
+	
+	</script>
+</body>

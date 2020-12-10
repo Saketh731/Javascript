@@ -1,0 +1,29 @@
+<body>
+	<script>
+		class person{ 
+		    gender = "male";
+			constructor(name){ 
+				this.name = name; 
+			}  
+
+			toString(){ 
+				return (`Name of person: ${this.name}`); 
+			} 
+		} 
+		class student extends person{ 
+			age = 3;
+			constructor(name,id){ 
+			super(name); 
+			this.id = id; 
+		} 
+			toString(){ 
+				return (`${super.toString()}, ${this.gender}, Student ID: ${this.id}`); 
+			} 
+		} 
+		
+		let student1 = new student('Saketh',22); 
+		let student2 = new student('James',23);
+		student1.age =  4;
+		console.log(student2.age);
+	</script>
+</body>
