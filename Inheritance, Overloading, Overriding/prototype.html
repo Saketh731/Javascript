@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function Person(){
+                this.name = "Saketh";
+                this.age = 22;
+            }
+            
+            Person.prototype.personDetails = function(){
+                console.log(this.name, this.age);
+            }
+
+            let p1 = new Person();  
+
+            function Student(){
+                this.id = 2594;
+                this.department = "CSE";
+            }
+
+            let s1 = new Student();
+            s1.__proto__.studentDetails = function(){
+                console.log(this.id, this.department);
+            }
+
+            //Student.prototype = Object.create(Person.prototype);
+            // Student.prototype.constructor = Student;
+            Student.prototype.__proto__ = Person.prototype;
+
+            let s2 = new Student();
+
+
+        </script>
+    </body>
+</html>
