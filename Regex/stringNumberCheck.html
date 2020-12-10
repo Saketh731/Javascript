@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let str = "Name: Saketh Phno: 7923234545 Name: James Phno: 8826534545 Name: Domnik Phno: 9226534545";
+            let pattern = /(0|91)?[7-9][0-9]{9}/g;
+            //console.log(pattern.test(str));
+            // let obj = pattern.exec(str);
+            // console.log("Found "+obj[0]+" at "+obj.index+" in "+obj.input);
+            let arr = str.match(pattern);
+            let i = 1;
+            for(num of arr){
+                if(str.search(num)){
+                    str = str.replace(num,"Found "+i);
+                }
+                i++;
+            }
+            console.log(str);
+        </script>
+    </body>
+</html>
