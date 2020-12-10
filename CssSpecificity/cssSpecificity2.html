@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            
+            div .classColor:hover{
+                color:red;
+            }
+            .classColor:hover{
+                color:green;
+            }
+            /* [id="idPara"]{
+                color: red;;
+            }
+            #idPara{ 
+                color:blue;
+            } */
+            div#divColor p#idPara::first-line{
+                color:blue;
+            }
+            div#divColor #idPara::first-line{
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "divColor">
+            <a href="www.google.com" class = "classColor">Anchor Tag</a>
+            <p class = "classPara" id = "idPara">Show the color</p>
+        </div>
+    </body>
+</html>
