@@ -1,0 +1,23 @@
+<body>
+<p id = '1'><p>
+<p id = '2'><p>
+
+	<script>
+	var res = "";
+		var address = {
+			flat:108,
+			street:2,
+			houseName:"Rolin Residency",
+			Pincode:500018
+		};
+		document.getElementById('1').innerHTML = "Flat: "+address.flat + "<br>"+
+		 "Street: "+address.street + "<br>"+
+		"HouseName: "+address.houseName + "<br>"+
+	 "Pincode: "+address.Pincode;
+	 for(let i in address)
+	 {
+		res = res + address[i] + "<br>";
+	 }
+	 document.getElementById('2').innerHTML = res;
+	</script>
+</body>

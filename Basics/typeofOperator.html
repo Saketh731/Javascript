@@ -1,0 +1,26 @@
+<body>
+	<h2>Types</h2>
+	<p id ='1'></p>
+	<p id ='2'></p>
+	<script>
+	var x;
+	document.getElementById('1').innerHTML = 
+	typeof new String("Saketh") + "<br>"+
+	typeof "Saketh"+ "<br>"+
+	typeof NaN+ "<br>"+
+	typeof null+ "<br>"+
+	typeof false+ "<br>"+
+	typeof [1,2,3,4,5]+ "<br>"+
+	typeof new Date()+ "<br>"+
+	typeof x+ "<br>"+
+	typeof Number("1")+ "<br>"+
+	typeof {Name:"Saketh",age:22}
+	</script>
+	<script>
+	document.getElementById('2').innerHTML = 
+	"saketh".constructor + "<br>"+
+	(2).constructor + "<br>"+
+	[1,2,3,4].constructor + "<br>"+
+	{name:"Saketh",age:22}.constructor
+	</script>
+</body>

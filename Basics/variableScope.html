@@ -1,0 +1,30 @@
+<body>
+	<p id='1'></p>
+	<button onclick = "scope()"> Click </button>
+	<button onclick = "scope1()">Click2 </button>
+	<script>
+	var x = 10;
+		function scope()
+		{
+			var years = 10; //Not visible at console as function scope
+			document.getElementById('1').innerHTML = "Yes i am "+years+" years old";
+		}
+		if(x <= 10)
+		{
+			var y = 20; //Visible at console as function scope
+			let z = 30; //Not visible at console as  block scope
+			const c = 40; //Not visible at console as  block scope
+		}
+		let z1 = 30; //Visible at console as  block scope
+		const c1 = 40; //Visible at console as  block scope
+		function scope1()
+		{
+			z1 = 100; // Prints 100 on console
+			x = 100; // Prints 100 on console
+			y = 100; // Prints 100 on console
+			c1 =100; // Prints 40 on console and give error msg as const variable cant be reassigned
+			z = 100; // Error : z undefined
+			years = 100; // Error : years undefined
+		}
+	</script>
+</body>

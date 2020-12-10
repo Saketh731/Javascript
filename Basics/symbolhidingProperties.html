@@ -1,0 +1,34 @@
+<body>
+	<script>
+		//Third party object
+		var faculty = {
+		    Name :  "John",
+			Id: 23,
+			Subject: "Java",
+			Department: "CSE",
+			//[student]:  "Saketh Kota",
+			//[rate]: 5
+			
+		};
+		
+		var student = Symbol("saketh_student");
+		var rate = Symbol("rating");
+		
+		faculty[student] = "Saketh Kota";
+		faculty[rate] = 5;
+		
+		
+		//Third party retrieving his data
+		for(let i in faculty)
+		{
+			console.log(faculty[i]); // John, 23, Java, CSE
+		}
+		
+		
+		
+		
+		
+		//We can access it with symbol for our own use
+		alert(faculty[student]+ " " +faculty[rate]); // Saketh_Kota  5
+	</script>
+</body>

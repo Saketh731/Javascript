@@ -1,0 +1,27 @@
+<body>
+	<button onclick = "redeclare()"> Redeclare </button>
+	<script>
+		var x = 10;
+		let y = 10;
+		const z = 10;
+		const obj = {
+		name : 'Saketh'
+		}
+		if( x == 10)
+		{
+			var x = 20 // redeclared to 20 at console
+			//let y = 20; // Will not update the global variable y, Its just an other different variable in different scope 
+			y = 20; //Uses the global variable y and updates it to 20
+			//z = 20;  //Error: cant assign again to a constant variable
+			const z = 20; // No Error, as it treats it as a different variable
+		}
+		//let y = 30; //Uncaught SyntaxError: y has already been declared
+		//const z = 30; //Uncaught SyntaxError: z has already been declared
+		obj.name = 'Saketh Kota'; // NO ERROR
+		var x = 40;
+		function redeclare(){
+			//var x = 30; // dosent update to 30 at console, as it sees it as a different variable compared to var x = 10,20
+			x = 50; // updates to 30, as it uses the global x variable
+		}
+	</script>
+</body>
