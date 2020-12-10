@@ -1,0 +1,19 @@
+<body>
+    <button id = '1'>Clik Here</button>
+    <p id = 'd2'></p>
+    <p id = 'd3'></p>
+    <script>
+        document.getElementById('1').addEventListener('click', getData);
+        function getData(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange =  function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200){
+                    document.getElementById('d2').innerHTML = xhttp.responseText;
+                }
+            }
+            xhttp.open("GET","data.html", true);
+            xhttp.send();
+            document.getElementById('d3').innerHTML = "Hey";
+        }
+    </script>    
+</body>

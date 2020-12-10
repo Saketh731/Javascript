@@ -1,0 +1,17 @@
+<body>
+    <button id = '1' onclick="postData()">Post Data</button>
+    <p id = '2'></p>
+    <script>
+        function postData(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4){
+                    document.getElementById('2').innerHTML = xhttp.responseText;
+                }
+            }
+            xhttp.open('POST','post.php',true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("fname=Henry&lname=Ford");
+        }
+    </script>
+</body>

@@ -1,0 +1,14 @@
+<body>
+    <button id = 'ajaxbtn' onclick = "getData()">Click Here</button>
+    <p id="print"></p>
+    <script type="text/javascript">
+        function getData(){
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET","https://cors-anywhere.herokuapp.com/https://www.google.com/",true);
+            xhr.onload = function(){
+                document.getElementById('print').innerHTML = this.responseText;
+            }
+            xhr.send();
+        }
+    </script>
+</body>
