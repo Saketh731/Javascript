@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="sum"></p>
+        <input type="button" value="Click Here" onclick="addition()">
+        <script>
+            function newFunc(){
+                let arr = [1,2,3,4];
+                this.sum = function(){
+                    let result = 0;
+                    for(let i = 0; i < arr.length; i++)
+                    {
+                        result += i;
+                    }
+                    document.getElementById('sum').innerHTML = "Answer = "+result;
+                }
+            }
+            let obj;
+            let obj2;
+            function addition(){
+                obj = new newFunc();
+                x = obj.sum();
+            }
+          
+        </script>
+    </body>
+</html>

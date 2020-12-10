@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button id = 'ajaxbtn' onclick = "getData()">Click Here</button>
+        <p id="print"></p>
+        <p id="print2"></p>
+        <p id="print3"></p>
+        <script>
+            function getData(){
+                let xhr = new XMLHttpRequest();
+                let output = "";
+                xhr.open("GET","https://api.github.com/users",false);
+                xhr.onload = function(){
+                    let object = JSON.parse(this.responseText);   
+                            
+                    for(let obj of object){
+                        output += obj.id + "<br>"+
+                        "<img src = '"+obj.avatar_url+"'" +"<br><br>";
+                    }
+                    document.getElementById('print').innerHTML = output;
+                }
+                document.getElementById('print2').innerHTML = "Hello";
+                xhr.send(); 
+
+
+                let xhr2 = new XMLHttpRequest();
+                xhr2.open('GET',"https://cors-anywhere.herokuapp.com/https://www.google.com/",true);
+                xhr2.onload = function(){
+                    let object = this.responseText;
+                    document.getElementById('print3').innerHTML = object;
+                }  
+                xhr2.send();
+            }
+        </script>
+    </body>
+</html>

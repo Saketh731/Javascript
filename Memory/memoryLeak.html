@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type="button" value="Create" onclick="createNode()">
+        <script>
+            let ul = document.createElement('ul');
+            document.body.appendChild(ul);
+            let x = 1;
+            let s = "Hi";
+            function createNode(){
+                s += 'Hi'
+                let li = document.createElement('li');
+                li.innerHTML = "Item "+x;
+                ul.appendChild(li);
+                x++;
+            }
+        </script>
+    </body>
+</html>
