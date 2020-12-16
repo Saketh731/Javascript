@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checked</title>
+        <style>
+            #outerBox{
+                display: flex;
+                height: 70vh;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            form#likes{
+                text-align: center;
+                display: flex;
+                width: 50%;
+                justify-content: space-evenly;
+            }   
+            .innerBox{
+                display: flex;
+                flex-direction: column;
+            }
+            .innerBox div{
+                display: flex;
+                width: 90%;
+                justify-content: space-between;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="outerBox">
+            <form id="likes">   
+                <div class="innerBox">
+                    <h3>Favourite Color</h3>
+                    <div>
+                        <label for="redColor">Red</label>
+                        <input type="radio" id="redColor" name="color" value="Red"/>
+                    </div>
+                <div>
+                        <label for="blueColor">Blue</label>
+                        <input type="radio" name="color" id="blueColor" value="Blue"/>
+                </div>
+                    <div>
+                        <label for="greenColor">Green</label>
+                        <input type="radio" name="color" id="greenColor" value="Green"/>
+                    </div>   
+                </div>
+                <div class="innerBox">
+                    <h3>Favourite Sports</h3>
+                    <div>
+                        <label for="cricket">Cricket</label>
+                        <input type="checkbox" name="sports" id="cricket" value="Cricket"/>
+                    </div>
+                    <div>
+                        <label for="badminton">Badminton</label>
+                        <input type="checkbox" name="sports" id="badminton" value="Badminton"/>
+                    </div>
+                    <div>
+                        <label for="football">Football</label>
+                        <input type="checkbox" name="sports" id="football" value="Football"/>
+                    </div>
+                </div>   
+            </form>
+            <br>
+            <input type="submit" value="Submit" form="likes">
+        </div>
+        <script type="text/javascript">
+            let likesForm = document.getElementById('likes');
+            let formElements = likesForm.elements;
+            likesForm.onsubmit = function(e){
+                e.preventDefault();
+                // for(let i = 0 ; i < formElements.length; i++){
+                //     if(formElements[i].type == 'checkbox')
+                //     {
+                //         if(formElements[i].checked){
+                //             console.log(formElements[i].value);   
+                //         }
+                //     }
+                // }
+                let colors = document.getElementsByName('color');
+                let arr = Array.prototype.filter.call(colors, (value) => value.checked === true);
+                console.log(arr);  
+                colors.forEach(function(element){
+                    if(element.checked){
+                        console.log(element.value)
+                        //console.log(element.labels.item(0).innerHTML);
+                    }
+                });
+                //let sports = document.getElementsByName('sports');
+                let sports = document.querySelectorAll("input[name='sports']:checked");
+                console.log(sports);
+                sports.forEach(function(element){
+                    //if(element.checked){
+                        console.log(element.value);
+                    //}
+                })
+            }     
+        </script>
+    </body>
+</html>
