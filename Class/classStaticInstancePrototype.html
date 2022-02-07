@@ -1,0 +1,29 @@
+<script>
+    class Employee {
+        static domain = "Java";
+        constructor(name, id) {
+            this.name = name;
+            this.id = id;
+        }
+        static constructor(name) {
+            this.name = name;
+        }
+        details() {
+            this.company = function() {
+                console.log(this.name + "ACS");
+            }
+            this.age = 22;
+            console.log(this.name, this.id);
+        }
+        static details() {
+            console.log(this.name);
+        }
+    }
+    var emp = new Employee("Saketh", 2594);
+
+    Employee.prototype.random = function() {
+            this.ran = 22;
+            console.log(this);
+        }
+        // emp.details();
+</script>

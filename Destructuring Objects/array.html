@@ -1,0 +1,13 @@
+<script>
+    var alp = ["A", "B", "C", "D", "E", "F"];
+    var num = [1, 2, 3, 4];
+
+    // var a = alp[0];
+    // var b = alp[1];
+
+    var [a, , b, ...rest] = alp;
+    console.log(a, b, rest);
+
+    // var newArr = alp.concat(num);
+    var newArr = [...alp, ...num];
+</script>

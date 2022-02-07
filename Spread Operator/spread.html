@@ -1,0 +1,17 @@
+<script>
+    // var args = [12, 13];
+    // var func = function(a, b, c, d, ...args) {
+    //     console.log(a, b, args);
+    // }
+    // var ar = [1, 2, 3, 4, 5];
+    // //func(...ar);
+    // func(1, 2, 3, 4);
+
+
+    var arr = ["Saketh", "James", "Sasi"];
+    var arr2 = [1, 2, ...arr, 4, 5];
+
+    //var newArr = [...arr, ...arr2];
+    //arr.push(...arr2);
+    Array.prototype.push.apply(arr, arr2);
+</script>

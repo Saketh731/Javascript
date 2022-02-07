@@ -1,0 +1,10 @@
+<script>
+    function outerFunc() {
+        var innerArrow = (val) => {
+            console.log(val, arguments[0], arguments[3]);
+        }
+        return innerArrow;
+    }
+    var innerArrow = outerFunc(1, 2, 3, 4);
+    innerArrow("Hello");
+</script>

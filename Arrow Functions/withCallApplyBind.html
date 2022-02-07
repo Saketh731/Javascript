@@ -1,0 +1,17 @@
+<script>
+    var obj = {
+        name: "Saketh",
+        age: 22
+    }
+    var details = function(id) {
+        console.log(this.name, this.age, id);
+    }
+
+    var detailsArrow = (id) => {
+        console.log(this.name, this.age, id);
+    }
+
+    details.call(obj, 2594);
+
+    detailsArrow.call(obj, 2594);
+</script>

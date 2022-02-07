@@ -1,0 +1,24 @@
+<script>
+    var obj = {
+        name: "Saketh",
+        age: 22,
+        details: function() {
+            setTimeout(function() {
+                // console.log(this);
+                this.age++;
+                console.log(this.age);
+            }, 300);
+        },
+
+        detailsArrow: function() {
+            // this.details(this);
+            setTimeout(() => {
+                this.age++;
+                console.log(this.age);
+            }, 300);
+        }
+    }
+
+    obj.details();
+    obj.detailsArrow();
+</script>

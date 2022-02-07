@@ -1,0 +1,16 @@
+<script>
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+            this.details = this.details.bind(this);
+        }
+        details() {
+            console.log(this.name, this.age);
+        }
+    }
+    var person = new Person("Saketh", 22);
+    // person.details = function() {
+    //     console.log("Changed");
+    // }
+</script>

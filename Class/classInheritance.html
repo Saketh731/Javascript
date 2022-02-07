@@ -1,0 +1,31 @@
+<script>
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        static state = "Telangana";
+        personDetails() {
+            console.log(this.name, this.age);
+        }
+    }
+
+    class Employee extends Person {
+        constructor(name, age, domain, id) {
+            super(name, age);
+            this.domain = domain;
+            this.id = id;
+        }
+
+        personDetails() {
+            super.personDetails();
+            console.log(this.name, this.age, this.domain, this.id);
+        }
+
+        empDetails() {
+            console.log(this.domain, this.id);
+        }
+    }
+
+    var emp = new Employee("Saketh", 22, "Java", 2594);
+</script>

@@ -1,0 +1,18 @@
+<script>
+    // var name = "GLobal";
+    // var age = 10000000;
+    var obj = {
+        name: "Saketh",
+        age: 22,
+        details: function() {
+            console.log(this.name, this.age);
+        },
+        detailsArrow: () => {
+            console.log(this.name, this.age);
+        }
+    }
+
+    // obj.detailsArrow.call(obj);
+
+    obj.detailsArrow(); //this points to window object
+</script>

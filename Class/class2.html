@@ -1,0 +1,42 @@
+<script>
+    // class Animal {
+    //     speak() {
+    //         return this;
+    //     }
+    //     static eat() {
+    //         return this;
+    //     }
+    // }
+
+    // let obj = new Animal();
+    // console.log(obj.speak()); // the Animal object
+    // let speak = obj.speak;
+    // console.log(speak()); // undefined
+
+    // console.log(Animal.eat()); // class Animal
+    // let eat = Animal.eat;
+    // console.log(eat()); // undefined
+
+
+
+
+
+    function Animal() {}
+
+    Animal.prototype.speak = function() {
+        return this;
+    }
+
+    Animal.eat = function() {
+        return this;
+    }
+
+    let obj = new Animal();
+    console.log(obj.speak());
+    let speak = obj.speak;
+    console.log(speak()); // global object (in non–strict mode)
+
+    console.log(Animal.eat());
+    let eat = Animal.eat;
+    console.log(eat()); // global object (in non-strict mode)
+</script>

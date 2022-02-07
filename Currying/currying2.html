@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Border Color</title>
+    <style>
+        section {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            border: 8px solid blue;
+        }
+        
+        #div1 {
+            background-color: lightblue;
+        }
+        
+        #div2 {
+            background-color: lightgreen;
+        }
+        
+        #div3 {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+    </section>
+
+    <script>
+        var selectDiv = function(id) {
+            return function(color) {
+                if (color) document.getElementById(id).style.backgroundColor = color;
+                return function(borderColor) {
+                    document.getElementById(id).style.borderColor = borderColor;
+                }
+            }
+        }
+
+        // var bgColor = selectDiv("div1");
+        // var borderColor = bgColor("black");
+        // borderColor("red");
+
+
+        // var bgColor2 = selectDiv("div2");
+        // var borderColor2 = bgColor2();
+        // borderColor2("red");
+    </script>
+</body>
+
+</html>

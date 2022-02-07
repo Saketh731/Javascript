@@ -1,0 +1,19 @@
+<script>
+    var person = {
+        name: "Saketh",
+        age: 22,
+        address: {
+            state: "Telangana",
+            city: "Hyderabad"
+        }
+    }
+
+    function showDetails({
+        name,
+        age
+    }) {
+        console.log(`Name is ${name} and age is ${age}`);
+    }
+
+    showDetails(person);
+</script>

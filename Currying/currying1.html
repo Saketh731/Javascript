@@ -1,0 +1,21 @@
+<script>
+    var avg = function(...n) {
+        var total = 0;
+        for (let val of n) {
+            total = total + val;
+        }
+        return total / n.length;
+    }
+
+    var currying = function(func, ...n) {
+        return function(...m) {
+            n = n.concat(m);
+            return func.apply(this, n);
+        }
+    }
+
+    var doAvg = currying(avg, 1, 2, 3);
+    console.log(doAvg(4));
+
+    console.log(doAvg(5));
+</script>

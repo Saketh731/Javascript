@@ -1,0 +1,25 @@
+<script>
+    var sum = function(a) {
+        return function(b) {
+            console.log(a + b);
+        }
+    }
+    var sumWithFive = sum(5);
+    sumWithFive(2);
+
+    var sumWithTwo = sum(2);
+    sumWithTwo(6);
+
+    // var sum = function(a) {
+    //     return function(b) {
+    //         return function(c) {
+    //             console.log(a + b + c);
+    //         }
+    //     }
+    // }
+    // var sumWithFive = sum(5);
+    // sumWithFive(3)(2);
+
+    // var sumWithTwo = sumWithFive(2);
+    // sumWithTwo(7);
+</script>

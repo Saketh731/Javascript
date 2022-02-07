@@ -1,0 +1,33 @@
+<script>
+    var company = {
+        name: "ACS",
+        year: 2007,
+        details: function() {
+            return function() {
+                console.log(this.name, this.year);
+            }
+        },
+
+        // detailsArrow: function() {
+        //     return () => {
+        //         console.log(this.name, this.year);
+        //     }
+        // }
+    }
+
+
+    var person = {
+        name: "Saketh",
+        year: 1998,
+        about: function() {
+            console.log(this.name, this.year);
+        }
+    }
+
+    var details = company.details();
+    person.companyDetails = details;
+
+
+    // var details = company.detailsArrow();
+    // person.companyDetails = details;
+</script>

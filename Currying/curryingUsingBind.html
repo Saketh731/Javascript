@@ -1,0 +1,21 @@
+<script>
+    var sum = function(a, b) {
+        console.log(a + b);
+    }
+
+    var sumWithFive = sum.bind(this, 5);
+    sumWithFive(2);
+
+    var sumWithTwo = sum.bind(this, 2);
+    sumWithTwo(4);
+
+    // var sum = function(a, b, c) {
+    //     console.log(a + b + c);
+    // }
+
+    // var sumWithFive = sum.bind(this, 5);
+    // sumWithFive(2, 3);
+
+    // var sumWithTwo = sumWithFive.bind(this, 2);
+    // sumWithTwo(7);
+</script>

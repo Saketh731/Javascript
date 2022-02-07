@@ -1,0 +1,40 @@
+<script>
+    var person1 = {
+        name: "Saketh",
+        age: 22,
+        address: {
+            state: "Telangana",
+            city: "Hyderabad"
+        }
+    }
+
+    var person2 = {
+        name: "James",
+        age: 31,
+        address: {
+            state: "Maharashtra",
+            city: "Mumbai"
+        }
+    }
+
+    let n = 'name';
+
+    var {
+        [n]: myName,
+        // ...rest
+        address: {
+            city
+        }
+    } = person1;
+
+    console.log(myName, city);
+
+    // ({
+    //     name,
+    //     age
+    // } = person2);
+    // console.log(name, age);
+    // var newObj = {...person1,
+    //     ...person2
+    // }
+</script>
